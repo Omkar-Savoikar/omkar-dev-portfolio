@@ -1,6 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+	const router = useRouter();
+
+	const routeToPortfolio = () => router.push("/portfolio");
+	const routeToContact = () => router.push("/contact");
+
 	return (
 		<>
 			<div className='relative h-1/2 w-full lg:h-full lg:w-1/2'>
@@ -21,10 +27,15 @@ export default function HomePage() {
 					reflect my commitment to excellence.
 				</p>
 				<div className='flex gap-4'>
-					<button className='cursor-pointer rounded-lg bg-black p-4 text-white ring-1 ring-black'>
+					<button
+						className='cursor-pointer rounded-lg bg-black p-4 text-white ring-1 ring-black'
+						onClick={routeToPortfolio}
+					>
 						View My Work
 					</button>
-					<button className='cursor-pointer rounded-lg p-4 ring-1 ring-black'>Contact Me</button>
+					<button className='cursor-pointer rounded-lg p-4 ring-1 ring-black' onClick={routeToContact}>
+						Contact Me
+					</button>
 				</div>
 			</div>
 		</>
